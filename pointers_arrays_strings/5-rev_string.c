@@ -9,28 +9,25 @@
  */
 void rev_string(char *s)
 {
-    int left = 0;
-    int right = 0;
-    char temp;
-
-    /* Find the length of the string */
-    while (s[right] != '\0')
-    {
-        right++;
-    }
-    right--; /* Move to the last valid index of the string */
-
-    /* Swap characters from both ends towards the center */
-    while (left < right)
-    {
-        /* Swap the characters */
-        temp = s[left];
-        s[left] = s[right];
-        s[right] = temp;
-
-        /* Move towards the center */
-        left++;
-        right--;
-    }
+int left = 0;
+int right = 0;
+char temp;
+/* Find the length of the string */
+while (s[right] != '\0')
+{
+right++;
+}
+right--; /* Move to the last valid index of the string */
+/* Swap characters from both ends towards the center */
+while (left < right)
+{
+/* Swap the characters */
+temp = s[left];
+s[left] = s[right];
+s[right] = temp;
+/* Move towards the center */
+left++;
+right--;
+}
 }
 
