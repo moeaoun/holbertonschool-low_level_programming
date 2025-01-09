@@ -10,8 +10,7 @@
  */
 int main(int argc, char *argv[])
 {
-    (void)argv;  // We don't need to use argv
-    printf("%d\n", argc - 1);  // argc includes the program name, so subtract 1
+    (void)argv; 
+    printf("%d\n", argc - 1);
     return (0);
 }
-
