@@ -1,9 +1,16 @@
 #include <stdio.h>
 
+/**
+ * main - Prints the name of the program
+ * @argc: Argument count
+ * @argv: Argument vector (array of strings)
+ *
+ * Return: 0 on success
+ */
 int main(int argc, char *argv[])
 {
-    /* We print argv[0] which contains the program's name */
+    (void)argc;  // We don't need to use argc
     printf("%s\n", argv[0]);
-    return 0;
+    return (0);
 }
 
