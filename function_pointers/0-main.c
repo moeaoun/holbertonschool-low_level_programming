@@ -8,8 +8,8 @@
  */
 int main(void)
 {
-    print_name("Bob", print_name_as_is);
-    print_name("Bob Dylan", print_name_uppercase);
+    print_name("Hodor", print_name_uppercase);  /* Pass function pointer */
+    print_name("Hodor", NULL);  /* Pass NULL to check for graceful handling */
     printf("\n");
     return (0);
 }

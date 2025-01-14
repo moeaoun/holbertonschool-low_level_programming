@@ -11,7 +11,9 @@
 void print_name(char *name, void (*f)(char *))
 {
     if (name && f)
-        f(name);
+        f(name);  /* Call the function pointed to by f */
+    else
+        printf("No function provided to print the name.\n");
 }
 
 /**
