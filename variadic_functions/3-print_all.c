@@ -19,46 +19,40 @@ void print_all(const char * const format, ...)
 
     va_start(args, format);  /* Initialize the argument list */
 
-    /* If format is NULL or empty, do nothing */
-    if (format == NULL)
+    /* If format is NULL, just print a newline and return */
+    if (format != NULL)
     {
-        printf("\n");
-        return;
-    }
-
-    while (format[i] != '\0')
-    {
-        if (first == 1)
-            printf(", ");
-
-        switch (format[i])
+        while (format[i] != '\0')
         {
-        case 'c':
-            c = va_arg(args, int);  /* 'char' is promoted to 'int' in va_arg */
-            printf("%c", c);
-            break;
-        case 'i':
-            n = va_arg(args, int);
-            printf("%d", n);
-            break;
-        case 'f':
-            f = va_arg(args, double);  /* 'float' is promoted to 'double' in va_arg */
-            printf("%f", f);
-            break;
-        case 's':
-            str = va_arg(args, char *);
-            if (str == NULL)
-                printf("(nil)");
-            else
-                printf("%s", str);
-            break;
-        default:
-            i++;
-            continue;
-        }
+            if (first)
+                printf(", ");
 
-        first = 1;
-        i++;
+            switch (format[i])
+            {
+            case 'c':
+                c = va_arg(args, int);  /* 'char' is promoted to 'int' in va_arg */
+                printf("%c", c);
+                break;
+            case 'i':
+                n = va_arg(args, int);
+                printf("%d", n);
+                break;
+            case 'f':
+                f = va_arg(args, double);  /* 'float' is promoted to 'double' in va_arg */
+                printf("%f", f);
+                break;
+            case 's':
+                str = va_arg(args, char *);
+                printf("%s", (str == NULL) ? "(nil)" : str);
+                break;
+            default:
+                i++;
+                continue;
+            }
+
+            first = 1;
+            i++;
+        }
     }
 
     va_end(args);  /* Clean up the argument list */
