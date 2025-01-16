@@ -19,7 +19,14 @@ void print_all(const char * const format, ...)
 
     va_start(args, format);  /* Initialize the argument list */
 
-    while (format && format[i])
+    /* If format is NULL or empty, do nothing */
+    if (format == NULL)
+    {
+        printf("\n");
+        return;
+    }
+
+    while (format[i] != '\0')
     {
         if (first == 1)
             printf(", ");
