@@ -9,38 +9,36 @@
  */
 dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 {
-	dlistint_t *new_node, *temp;
+    dlistint_t *new_node, *temp = *head;
 
-	/* Allocate memory for the new node */
-	new_node = malloc(sizeof(dlistint_t));
-	if (new_node == NULL)
-	{
-		return (NULL);  /* Return NULL if malloc fails */
-	}
+    /* Allocate memory for the new node */
+    new_node = malloc(sizeof(dlistint_t));
+    if (new_node == NULL)
+    {
+        return (NULL);
+    }
 
-	/* Initialize the new node */
-	new_node->n = n;
-	new_node->next = NULL;
+    new_node->n = n;
+    new_node->next = NULL;
 
-	/* If the list is empty, the new node becomes the head */
-	if (*head == NULL)
-	{
-		new_node->prev = NULL;
-		*head = new_node;
-		return (new_node);
-	}
+    /* If the list is empty, the new node will be the head */
+    if (*head == NULL)
+    {
+        new_node->prev = NULL;
+        *head = new_node;
+        return (new_node);
+    }
 
-	/* Traverse the list to find the last node */
-	temp = *head;
-	while (temp->next != NULL)
-	{
-		temp = temp->next;
-	}
+    /* Traverse to the last node */
+    while (temp->next != NULL)
+    {
+        temp = temp->next;
+    }
 
-	/* Add the new node at the end of the list */
-	temp->next = new_node;
-	new_node->prev = temp;
+    /* Add the new node at the end */
+    temp->next = new_node;
+    new_node->prev = temp;
 
-	return (new_node);  /* Return the address of the new node */
+    return (new_node);
 }
 
