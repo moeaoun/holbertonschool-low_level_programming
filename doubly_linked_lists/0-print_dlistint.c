@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "lists.h"
 
 /**
@@ -9,16 +8,16 @@
  */
 size_t print_dlistint(const dlistint_t *h)
 {
-    size_t count = 0;  /* Initialize the node count to zero */
+    size_t num = 0;  /* Initialize the node count to zero */
 
     /* Traverse the list and print each node's data */
-    while (h != NULL)
+    while (h)
     {
         printf("%d\n", h->n);  /* Print the value of the current node */
-        count++;  /* Increment the count for each node */
+        num++;  /* Increment the count for each node */
         h = h->next;  /* Move to the next node */
     }
 
-    return (count);  /* Return the total number of nodes */
+    return (num);  /* Return the total number of nodes */
 }
 
