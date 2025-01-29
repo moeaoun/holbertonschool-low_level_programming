@@ -7,17 +7,17 @@
  */
 int get_endianness(void)
 {
-    union {
-        unsigned int num;
-        unsigned char byte[4];
-    } u;
+	union {
+		unsigned int num;
+		unsigned char byte[4];
+	} u;
 
-    u.num = 1;  /* Set the integer value to 1 */
+	u.num = 1;  /* Set the integer value to 1 */
 
-    /* If the first byte is 1, it's little endian, otherwise it's big endian */
-    if (u.byte[0] == 1)
-        return (1);  /* Little Endian */
-    else
-        return (0);  /* Big Endian */
+	/* If the first byte is 1, it's little endian, otherwise it's big endian */
+	if (u.byte[0] == 1)
+		return (1);  /* Little Endian */
+	else
+		return (0);  /* Big Endian */
 }
 
